@@ -4,6 +4,7 @@ interface Shape {
     void draw();
 }
 
+// & With interface OOP */
 class Rectangle implements Shape {
 
     @Override
@@ -12,25 +13,21 @@ class Rectangle implements Shape {
     }
 }
 
-class Square implements Shape {
-    @Override
-    public void draw() {
-        System.out.println("Square class : draw() mñethod");
-    }
-}
-
-class Circle implements Shape {
-    @Override
-    public void draw() {
-        System.out.println("Circle class : draw() method");
-    }
-}
-
 public class LambdaExaple {
     public static void main(String[] args) {
+
+        // & With lambda expressions, Functional Programming
         Shape renctangle = () -> {
             System.out.println("Rectangle class: draw() method");
         };
+        renctangle.draw();
 
+        // &Utilizing parametors in a lambda expresion
+        print(renctangle);
+
+    }
+
+    private static void print(Shape shape) {
+        shape.draw();
     }
 }
