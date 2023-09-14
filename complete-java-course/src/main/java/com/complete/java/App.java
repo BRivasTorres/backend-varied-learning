@@ -1,11 +1,10 @@
 package com.complete.java;
 
-/**
- * Hello world!
- *
- */
+import com.complete.java.OverradingMethods.Dog;
+
 public class App {
     public static void main(String[] args) {
-        Human human = new Human("Rick", 45, 34);
+        // Human human = new Human("Rick", 45, 34);
+
     }
 }
