@@ -8,6 +8,7 @@ public class Email {
     private String password;
     private String department;
     private int mailboxCapacity;
+    private int defaultPasswordLength = 10;
     private String alternateEmail;
 
     public Email(String firstName, String lastName) {
@@ -16,6 +17,8 @@ public class Email {
         JOptionPane.showMessageDialog(null, this.firstName + " " + this.lastName, "Email Created :",
                 JOptionPane.INFORMATION_MESSAGE);
         this.department = setDepartment();
+        this.password = randomPassword(defaultPasswordLength);
+        System.out.println(this.password);
     }
 
     private String setDepartment() {
@@ -28,8 +31,17 @@ public class Email {
         String selectedDepartment = options[result];
         JOptionPane.showMessageDialog(null, options[result], "Your department is : ",
                 JOptionPane.INFORMATION_MESSAGE);
-
         return selectedDepartment;
+    }
+
+    private String randomPassword(int length) {
+        String passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%";
+        char[] password = new char[length];
+        for (int i = 0; i < length; i++) {
+            int rand = (int) (Math.random() * passwordSet.length());
+            password[i] = passwordSet.charAt(rand);
+        }
+        return new String(password);
     }
 
 }
