@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 public class Email {
     private String firstName;
     private String lastName;
+    private String email;
     private String password;
     private String department;
     private int mailboxCapacity;
@@ -19,6 +20,9 @@ public class Email {
         this.department = setDepartment();
         this.password = randomPassword(defaultPasswordLength);
         System.out.println(this.password);
+
+        this.email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department.toLowerCase() + ".com";
+        System.out.println("Your email is: " + this.email);
     }
 
     private String setDepartment() {
@@ -44,4 +48,15 @@ public class Email {
         return new String(password);
     }
 
+    public void SetMailboxCapacity(int capacity) {
+        this.mailboxCapacity = capacity;
+    }
+
+    public void setAlternateEmail(String altEmail) {
+        this.alternateEmail = altEmail;
+    }
+
+    public void changePassword(String password) {
+        this.password = password;
+    }
 }
