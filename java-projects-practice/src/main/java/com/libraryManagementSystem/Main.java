@@ -11,22 +11,22 @@ public class Main {
         final String[] options = { "Exit", "Login", "New User" };
 
         int num;
-        do {
-            JOptionPane.showMessageDialog(null, "Welcome to Library Management System", "Welcome!!",
-                    JOptionPane.INFORMATION_MESSAGE);
-            int result = JOptionPane.showOptionDialog(null, "Enter", "Enter", JOptionPane.YES_NO_CANCEL_OPTION,
-                    JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+        // do {
+        JOptionPane.showMessageDialog(null, "Welcome to Library Management System", "Welcome!!",
+                JOptionPane.INFORMATION_MESSAGE);
+        int result = JOptionPane.showOptionDialog(null, "Enter", "Enter", JOptionPane.YES_NO_CANCEL_OPTION,
+                JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
 
-            num = result;
-            switch (result) {
-                case 1:
-                    login();
-                    break;
-                case 2:
-                    newuser();
-                    break;
-            }
-        } while (num != 0);
+        num = result;
+        switch (result) {
+            case 1:
+                login();
+                break;
+            case 2:
+                newuser();
+                break;
+        }
+        // } while (num != 0);
     }
 
     private static void login() {
