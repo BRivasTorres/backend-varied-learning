@@ -4,6 +4,8 @@ import javax.swing.JOptionPane;
 
 public class Main {
     public static void main(String[] args) {
+        Database database = new Database();
+
         final String[] options = { "Login", "New User" };
 
         JOptionPane.showMessageDialog(null, "Welcome to Library Management System", "Welcome!!",
