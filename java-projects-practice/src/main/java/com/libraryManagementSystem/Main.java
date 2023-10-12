@@ -52,13 +52,14 @@ public class Main {
         int resultRoles = JOptionPane.showOptionDialog(null, "Roles", "Roles", JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.INFORMATION_MESSAGE, null, roles, roles[0]);
 
+        User user;
         if (resultRoles == 0) {
-            User admin = new User(name, email, phoneNumber);
-            database.AddUser(admin);
+            user = new Admin(name, email, phoneNumber);
         } else {
-            User user = new User(name, email, phoneNumber);
-            database.AddUser(user);
+            user = new NormalUser(name, email, phoneNumber);
         }
+        database.AddUser(user);
+        user.menu();
 
         JOptionPane.showMessageDialog(null, "User Created Succesfully", "User created",
                 JOptionPane.INFORMATION_MESSAGE);

@@ -1,6 +1,6 @@
 package com.libraryManagementSystem;
 
-public class User {
+public abstract class User {
     protected String name;
     protected String email;
     protected String phoneNumber;
@@ -29,4 +29,6 @@ public class User {
     public String getPhoneNumber() {
         return phoneNumber;
     }
+
+    abstract public void menu();
 }
