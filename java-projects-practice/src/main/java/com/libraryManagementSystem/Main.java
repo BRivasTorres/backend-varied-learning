@@ -29,15 +29,15 @@ public class Main {
         final String[] roles = { "Admin, Normal User" };
 
         String name = JOptionPane.showInputDialog("Enther Name: ");
-        String phoneNumber = JOptionPane.showInputDialog("Enther Phone Number: ");
         String email = JOptionPane.showInputDialog("Enther email: ");
+        String phoneNumber = JOptionPane.showInputDialog("Enther Phone Number: ");
         int resultRoles = JOptionPane.showOptionDialog(null, "Roles", "Roles", JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.INFORMATION_MESSAGE, null, roles, roles[0]);
 
         if (resultRoles == 0) {
-
+            User adming = new User(name, email, phoneNumber);
         } else {
-
+            User user = new User(name, email, phoneNumber);
         }
     }
 
