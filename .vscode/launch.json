@@ -6,6 +6,13 @@
 	"configurations": [
 		{
 			"type": "java",
+			"name": "Main",
+			"request": "launch",
+			"mainClass": "com.libraryManagementSystem.Main",
+			"projectName": "java-projects-practice"
+		},
+		{
+			"type": "java",
 			"name": "EmailApp",
 			"request": "launch",
 			"mainClass": "com.emailapp.EmailApp",
