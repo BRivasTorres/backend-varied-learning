@@ -36,8 +36,7 @@ public class Main {
         int n = database.login(phoneNumber, email);
         if (n != -1) {
             User user = database.getUser(n);
-            JOptionPane.showMessageDialog(null, "Welcome " + user.getName(), "Welcomo!!",
-                    JOptionPane.INFORMATION_MESSAGE);
+            user.menu();
         } else {
             JOptionPane.showMessageDialog(null, "User doesnt exist", "User not found", JOptionPane.ERROR_MESSAGE);
         }
