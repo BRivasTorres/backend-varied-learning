@@ -31,12 +31,12 @@ public class Admin extends User {
     }
 
     @Override
-    public void menu() {
+    public void menu(Database database, User user) {
         String[] adminOptions = { "View Books", "Add Book", "Delete Book", "Serch", "Delete all data", "View Orders",
                 "Exit" };
 
         int n = JOptionPane.showOptionDialog(null, "Select an option", "Options", JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.INFORMATION_MESSAGE, null, adminOptions, adminOptions[0]);
-        this.operations[n].oper();
+        this.operations[n].oper(database, user);
     }
 }

@@ -30,12 +30,13 @@ public class NormalUser extends User {
     }
 
     @Override
-    public void menu() {
+    public void menu(Database database, User user) {
         String[] userOptions = { "View Books", "Search", "Place Order", "Borrow Bood", "Calculate Fine", "Return Book",
                 "Exit" };
 
         int n = JOptionPane.showOptionDialog(null, "Select an option", "Options", JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.INFORMATION_MESSAGE, null, userOptions, userOptions[0]);
-        this.operations[n].oper();
+        this.operations[n].oper(database, user);
+        // ! s. close()
     }
 }

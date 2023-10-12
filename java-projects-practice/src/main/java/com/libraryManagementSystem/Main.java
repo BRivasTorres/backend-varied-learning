@@ -36,7 +36,7 @@ public class Main {
         int n = database.login(phoneNumber, email);
         if (n != -1) {
             User user = database.getUser(n);
-            user.menu();
+            user.menu(database, user);
         } else {
             JOptionPane.showMessageDialog(null, "User doesnt exist", "User not found", JOptionPane.ERROR_MESSAGE);
         }
@@ -58,7 +58,7 @@ public class Main {
             user = new NormalUser(name, email, phoneNumber);
         }
         database.AddUser(user);
-        user.menu();
+        user.menu(database, user);
 
         JOptionPane.showMessageDialog(null, "User Created Succesfully", "User created",
                 JOptionPane.INFORMATION_MESSAGE);
