@@ -1,6 +1,8 @@
 package com.libraryManagementSystem;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 
 public class Database {
@@ -46,4 +48,14 @@ public class Database {
         books.add(book);
         booknames.add(book.getName());
     }
+
+    private void getUsers() {
+        String text1 = "";
+        try {
+            BufferedReader br1 = new BufferedReader(new FileReader(usersFile));
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
+    }
+
 }
