@@ -28,9 +28,9 @@ public class Book {
                 + "Book Collection Adress: " + adress + "Qty: " + String.valueOf(qty) + "Price: "
                 + String.valueOf(price) + "Borrowing Copies: " + String.valueOf(brwcopies);
         return text;
-    
+    }
 
-    ublic String getName() {
+    public String getName() {
         return name;
     }
 
