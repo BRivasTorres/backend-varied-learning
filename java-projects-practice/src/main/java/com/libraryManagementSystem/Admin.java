@@ -39,4 +39,8 @@ public class Admin extends User {
                 JOptionPane.INFORMATION_MESSAGE, null, adminOptions, adminOptions[0]);
         this.operations[n].oper(database, user);
     }
+
+    public String toString() {
+        return name + "<N/>" + email + "<N/>" + phoneNumber + "<N/>" + "Admin";
+    }
 }

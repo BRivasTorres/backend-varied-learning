@@ -3,6 +3,7 @@ package com.libraryManagementSystem;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Database {
@@ -53,9 +54,27 @@ public class Database {
         String text1 = "";
         try {
             BufferedReader br1 = new BufferedReader(new FileReader(usersFile));
+            String s1;
+            while ((s1 = br1.readLine()) != null) {
+                text1 = text1 + s1;
+            }
+            br1.close();
         } catch (Exception e) {
             System.err.println(e.toString());
         }
     }
 
+    private void saveUsers() {
+        String text1 = "";
+        for (User user : users) {
+            text1 = text1 + users.toString() + "<NewUser/>\n";
+        }
+        try {
+            PrintWriter pw = new PrintWriter(usersFile);
+            pw.println(text1);
+            pw.close();
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
+    }
 }

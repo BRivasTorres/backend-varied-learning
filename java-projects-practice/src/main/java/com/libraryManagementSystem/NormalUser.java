@@ -39,4 +39,8 @@ public class NormalUser extends User {
         this.operations[n].oper(database, user);
         // ! s. close()
     }
+
+    public String toString() {
+        return name + "<N/>" + email + "<N/>" + phoneNumber + "<N/>" + "Admin";
+    }
 }
