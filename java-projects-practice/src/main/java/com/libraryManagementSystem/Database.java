@@ -62,6 +62,18 @@ public class Database {
         } catch (Exception e) {
             System.err.println(e.toString());
         }
+
+        if (!text1.matches("") || !text1.isEmpty()) {
+            String[] a1 = text1.split("<NewUser/>");
+            for (String s : a1) {
+                String[] a2 = s.split("<N/>");
+                if (a2[3].matches("Admin")) {
+                    User user = new Admin(a2[0], a2[1], a2[2]);
+                    users.add(user);
+                    usernames.add(user.getName());
+                }
+            }
+        }
     }
 
     private void saveUsers() {
