@@ -28,6 +28,7 @@ public class Database {
     public void AddUser(User s) {
         users.add(s);
         usernames.add(s.getName());
+        saveUsers();
     }
 
     public int login(String phoneNumber, String email) {
@@ -69,6 +70,10 @@ public class Database {
                 String[] a2 = s.split("<N/>");
                 if (a2[3].matches("Admin")) {
                     User user = new Admin(a2[0], a2[1], a2[2]);
+                    users.add(user);
+                    usernames.add(user.getName());
+                } else {
+                    User user = new NormalUser(a2[0], a2[1], a2[2]);
                     users.add(user);
                     usernames.add(user.getName());
                 }
