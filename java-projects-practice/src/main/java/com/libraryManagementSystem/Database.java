@@ -23,6 +23,7 @@ public class Database {
         if (!booksFile.exists()) {
             booksFile.mkdir();
         }
+        getUsers();
     }
 
     public void AddUser(User s) {
@@ -49,6 +50,7 @@ public class Database {
     public void AddBook(Book book) {
         books.add(book);
         booknames.add(book.getName());
+        saveUsers();
     }
 
     private void getUsers() {
