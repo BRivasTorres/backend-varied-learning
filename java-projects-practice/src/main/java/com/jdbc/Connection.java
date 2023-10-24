@@ -1,7 +1,9 @@
 package com.jdbc;
 
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Connection {
     public static java.sql.Connection connectToDatabase() {
@@ -12,7 +14,14 @@ public class Connection {
 
         try {
             connection = DriverManager.getConnection(url, usuario, contraseña);
-            System.out.println("conexion exitosa a la base de datos");
+            Statement statement = connection.createStatement();
+            String query = "SELECT envase FROM tbproductos";
+            ResultSet resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                String nombre = resultSet.getString("envase");
+                System.out.println("Envase " + nombre);
+            }
         } catch (SQLException e) {
             System.out.println("Error al conectar " + e.getMessage());
         }
