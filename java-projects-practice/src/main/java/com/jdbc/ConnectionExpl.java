@@ -5,8 +5,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Connection {
-    public static java.sql.Connection connectToDatabase() {
+public class ConnectionExpl {
+    public java.sql.Connection connectToDatabase() {
+        SelectOptions selected = new SelectOptions();
+        String res = selected.Select();
+
         java.sql.Connection connection = null;
         String url = "jdbc:mysql://localhost:3306/jugos2";
         String usuario = "root";
@@ -15,29 +18,17 @@ public class Connection {
         try {
             connection = DriverManager.getConnection(url, usuario, contraseña);
             Statement statement = connection.createStatement();
-            String query = "SELECT envase FROM tbproductos";
+            String query = "SELECT " + res + " FROM tbproductos";
             ResultSet resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
-                String nombre = resultSet.getString("envase");
-                System.out.println("Envase " + nombre);
+                String nombre = resultSet.getString(res);
+                System.out.println("Seleciono : " + nombre);
             }
         } catch (SQLException e) {
             System.out.println("Error al conectar " + e.getMessage());
         }
 
         return connection;
-    }
-
-    public static void main(String[] args) {
-        java.sql.Connection connection = connectToDatabase();
-
-        try {
-            if (connection != null) {
-                connection.close();
-            }
-        } catch (SQLException e) {
-            System.out.println("eror" + e.getMessage());
-        }
     }
 }
