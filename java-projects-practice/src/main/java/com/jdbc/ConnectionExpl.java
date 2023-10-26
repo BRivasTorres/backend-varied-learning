@@ -9,6 +9,11 @@ public class ConnectionExpl {
     public java.sql.Connection connectToDatabase() throws RuntimeException {
         SelectOptions selected = new SelectOptions();
         String res = selected.Select();
+        Actions action = new Actions();
+        int act = action.selectedAction();
+
+        // *Dependiendo del numero de la accion de act se llamara a la clase para leer o
+        // para insertar datos */
 
         java.sql.Connection connection = null;
         String url = "jdbc:mysql://localhost:3306/jugos2";

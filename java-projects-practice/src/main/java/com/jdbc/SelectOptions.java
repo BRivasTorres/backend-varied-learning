@@ -9,6 +9,7 @@ public class SelectOptions {
         int result = JOptionPane.showOptionDialog(null, "Seleccione una opción", "Seleccione",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+
         if (result >= 0) {
             res = options[result];
         } else {
