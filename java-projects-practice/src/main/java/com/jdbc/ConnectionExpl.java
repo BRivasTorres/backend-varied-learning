@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class ConnectionExpl {
-    public java.sql.Connection connectToDatabase() {
+    public java.sql.Connection connectToDatabase() throws RuntimeException {
         SelectOptions selected = new SelectOptions();
         String res = selected.Select();
 
