@@ -1,39 +1,57 @@
 package com.jdbc;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class ConnectionExpl {
-    public java.sql.Connection connectToDatabase() throws RuntimeException {
-        SelectOptions selected = new SelectOptions();
-        String res = selected.Select();
-        Actions action = new Actions();
-        int act = action.selectedAction();
 
-        // *Dependiendo del numero de la accion de act se llamara a la clase para leer o
-        // para insertar datos */
+    String url;
+    String usuario;
+    String contraseña;
+    String action;
+    String query;
+    Connection connection;
 
-        java.sql.Connection connection = null;
-        String url = "jdbc:mysql://localhost:3306/jugos2";
-        String usuario = "root";
-        String contraseña = "Hola1234.";
+    public ConnectionExpl() {
+
+    }
+
+    public ConnectionExpl(String url, String usuario, String contraseña, String action, String query) {
+        this.url = url;
+        this.usuario = usuario;
+        this.contraseña = contraseña;
+        this.action = action;
+        this.query = query;
+    }
+
+    Connection connectToDatabase() throws RuntimeException {
 
         try {
             connection = DriverManager.getConnection(url, usuario, contraseña);
             Statement statement = connection.createStatement();
-            String query = "SELECT " + res + " FROM tbproductos";
             ResultSet resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
-                String nombre = resultSet.getString(res);
+                String nombre = resultSet.getString(action);
                 System.out.println("Seleciono : " + nombre);
             }
         } catch (SQLException e) {
             System.out.println("Error al conectar " + e.getMessage());
         }
-
         return connection;
+    }
+
+    public void closeConnection() {
+        try {
+            if (connection != null) {
+                connection.close();
+                System.out.println("Conexión cerrada.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al cerrar la conexión: " + e.getMessage());
+        }
     }
 }
