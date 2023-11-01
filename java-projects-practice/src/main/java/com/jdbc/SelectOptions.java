@@ -3,7 +3,7 @@ package com.jdbc;
 import javax.swing.JOptionPane;
 
 public class SelectOptions {
-    public static String Select() {
+    public String Select() {
         String res = "";
         String[] options = { "Productos", "Nombre", "Envase", "Sabor", "Precio" };
         int result = JOptionPane.showOptionDialog(null, "Seleccione una opción", "Seleccione",

@@ -12,6 +12,9 @@ public class Actions {
         if (result == 0) {
             ReadAction read = new ReadAction();
             read.ReadData();
+        } else if (result == 1) {
+            InsertAction insert = new InsertAction();
+            insert.insertData();
         }
     }
 }

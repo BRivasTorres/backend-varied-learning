@@ -8,9 +8,9 @@ import java.sql.Statement;
 
 public class ConnectionExpl {
 
-    String url;
-    String usuario;
-    String contraseña;
+    String url = "jdbc:mysql://localhost:3306/jugos2";
+    String usuario = "root";
+    String contraseña = "Hola1234.";
     String action;
     String query;
     Connection connection;
@@ -19,16 +19,19 @@ public class ConnectionExpl {
 
     }
 
-    public ConnectionExpl(String url, String usuario, String contraseña, String action, String query) {
-        this.url = url;
-        this.usuario = usuario;
-        this.contraseña = contraseña;
+    public ConnectionExpl(String action, String query) {
         this.action = action;
         this.query = query;
     }
 
-    Connection connectToDatabase() throws RuntimeException {
+    public ConnectionExpl(String query) {
+        this.query = query;
+    }
 
+    Connection connectToDatabase() throws RuntimeException {
+        // TODO cambiar el metodo connectToDB para que funcione tanto al leer como al
+        // insertar data, ya que ahora solo funciona para leer data, devido a la
+        // variable action
         try {
             connection = DriverManager.getConnection(url, usuario, contraseña);
             Statement statement = connection.createStatement();
