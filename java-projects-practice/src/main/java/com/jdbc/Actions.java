@@ -14,7 +14,7 @@ public class Actions {
             read.ReadData();
         } else if (result == 1) {
             InsertAction insert = new InsertAction();
-            insert.insertData();
+            insert.actions();
         }
     }
 }

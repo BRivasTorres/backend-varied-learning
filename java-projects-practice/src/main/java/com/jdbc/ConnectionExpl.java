@@ -29,18 +29,8 @@ public class ConnectionExpl {
     }
 
     Connection connectToDatabase() throws RuntimeException {
-        // TODO cambiar el metodo connectToDB para que funcione tanto al leer como al
-        // insertar data, ya que ahora solo funciona para leer data, devido a la
-        // variable action
         try {
             connection = DriverManager.getConnection(url, usuario, contraseña);
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
-
-            while (resultSet.next()) {
-                String nombre = resultSet.getString(action);
-                System.out.println("Seleciono : " + nombre);
-            }
         } catch (SQLException e) {
             System.out.println("Error al conectar " + e.getMessage());
         }
