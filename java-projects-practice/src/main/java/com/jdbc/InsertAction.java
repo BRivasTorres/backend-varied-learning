@@ -4,15 +4,22 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 // DELETE FROM tbproductos WHERE nombre = "nuevo valor 1";
 
 public class InsertAction {
     public void actions() {
-        String[] options = { "INSERT", "DELETE", "UPDATE" };
-        JOptionPane.showOptionDialog(null, "Select options", "Select", JOptionPane.YES_NO_CANCEL_OPTION,
+        String[] options = { "INSERT", "DELETE" };
+        int result = JOptionPane.showOptionDialog(null, "Select options", "Select", JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+
+        if (result == 0) {
+            insertData();
+        } else if (result == 1) {
+            deleteData();
+        }
     }
 
     public void insertData() {
@@ -34,8 +41,17 @@ public class InsertAction {
         }
     }
 
+    public static void showData() {
+        String query = "SELECT * FROM tbproductos";
+        ConnectionExpl con = new ConnectionExpl(query);
+        Connection connection = con.connectToDatabase();
+
+        JFrame frame = new JFrame("Datos de la base de datos");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
     public static void deleteData() {
-        //TODO por medio del item del usuario eliminar dicho elemento con ese nombre dentro de la db
+
         String itemToDelete;
         String query = "DELETE FROM tbproductos WHERE nombre = " + "";
     }
