@@ -1,0 +1,16 @@
+{
+  "server": {
+    "id": "Tomcat",
+    "name": "Tomcat",
+    "type": "tomcat",
+    "request": "launch",
+    "host": "localhost",
+    "port": 8080,
+    "path": "/your-app-context",
+    "stopPort": 8005,
+    "debugPort": 8000,
+    "serverStartupTimeout": 3000,
+    "debugger": "auto"
+  },
+  "workspace": "../java-spring-course"
+}
