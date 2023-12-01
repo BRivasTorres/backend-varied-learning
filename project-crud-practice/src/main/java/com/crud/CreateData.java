@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import javax.swing.JOptionPane;
-
 public class CreateData {
     public void insetData(String titulo, String autor, int paginas, String genero, String idioma) {
         try {
