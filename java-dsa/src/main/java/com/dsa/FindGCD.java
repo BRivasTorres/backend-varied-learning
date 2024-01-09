@@ -1,3 +1,5 @@
+package com.dsa;
+
 public class Gcd {
     static  int gcd(int a, int b) {
         if(a>b) {
@@ -11,19 +13,27 @@ public class Gcd {
                 return i;
             }
         }
-        return 1;
+        return a;
     }
 
-    static euclidGcd(int a, int b) {
+    static int euclidGcd(int a, int b) {
         while (a != b) {
-            a>b ? a = a - b : b = b - a;
+            if(a>b) {
+                a = a - b;
+            } else {
+                b = b - a;
+            }
         }
         return a;
     }
 
-    static euclidOptimazed(int a, int b) {
-        while(a !== 0 && b !== 0) {
-            a>b ? a = a%b : b = b%a;
+    static int euclidOptimazed(int a, int b) {
+        while(a != 0 && b !=  0) {
+            if(a>b) {
+                a = a%b;
+            } else {
+                b = b % a;
+            }
         }
         return a == 0 ? a : b;
     }
@@ -32,6 +42,6 @@ public class Gcd {
         Scanner scan = new Scanner(System.in);
         int a = scan.nextInt();
         int b = scan.nextInt();
-        gcd(a, b)
+        gcd(a, b);
     }
 }

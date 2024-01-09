@@ -1,4 +1,6 @@
-public class IsPrimeEratosthenes {
+package com.dsa;
+
+public class Gcd {
 
     static void printPrimes(int n) {
         boolean[] primer = new boolean[n+1];

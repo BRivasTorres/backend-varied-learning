@@ -1,4 +1,6 @@
-public clas FindfLCM {
+package com.dsa;
+
+public class FindfLCM {
     static int findLCM(int a, int b) {
         int res = Math.max(a, b);
         while(true) {
@@ -7,5 +9,9 @@ public clas FindfLCM {
             }
         }
         return res;
+    }
+
+    public static void main(String[] args) {
+
     }
 }
